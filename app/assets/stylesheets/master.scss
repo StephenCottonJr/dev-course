@@ -22,24 +22,8 @@ h2 {
 }
 
 
-.slogan { 
-font-family: 'Quicksand', sans-serif;
-font-style: italic;
-padding-top: 26px;
-}
-
-
-.links {
-  padding-top: 26px;
-}
-
-
-.links a {
-  color: black;
-  font-family: 'Quicksand', sans-serif;
-  font-size: 25px;
-  font-weight: bold;
-  border-bottom: 1px solid #dfdfdf;
+hr {
+  clear:both;
 }
 
 
@@ -64,9 +48,46 @@ padding-top: 26px;
     -webkit-transform:rotate(11deg); /* Opera, Chrome, and Safari */
 }
 
-hr {
-  clear:both;
+
+.footer-blurb {
+  font-family: 'Quicksand', sans-serif;
+  font-style: italic;
+  text-align: right;
+  font-size: 10px;
 }
+
+.links {
+  padding-top: 26px;
+}
+
+
+.links a {
+  color: black;
+  font-family: 'Quicksand', sans-serif;
+  font-size: 25px;
+  font-weight: bold;
+  border-bottom: 1px solid #dfdfdf;
+}
+
+
+.next-quote {
+  color: #f84342;
+  font-family: 'Quicksand', sans-serif;
+  font-size: 20px;
+}
+
+
+.slogan { 
+font-family: 'Quicksand', sans-serif;
+font-style: italic;
+padding-top: 26px;
+}
+
+
+
+
+
+
 
 
 
