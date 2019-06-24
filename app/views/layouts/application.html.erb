@@ -23,16 +23,18 @@
           </div>
         <% end %>
       </div>
+      <div class="col col-sm-4 hidden-xs-down slogan">
       <div class="col-4 slogan">
         Splurting Out advice since 2016
       </div>
+      <div class="col-10 offset-1 offset-sm-0 col-sm-5 links">
       <div class="col-5 links">
         <!-- Button trigger modal -->
-         <%= link_to 'Contribute', '#', data: {toggle: 'modal', target: '#myModal'} %>
+        <%= link_to 'Contribute', '#', data: {toggle: 'modal', target: '#myModal'} %>
+        &nbsp; &nbsp;
         <%= link_to 'About', '#' %>
       </div>
     </header>
-
 
 
     <!-- Modal -->
@@ -45,12 +47,13 @@
             </button>
             <h4 class="modal-title" id="myModalLabel">Contribute Your Quote</h4>
           </div>
-          <div class="modal-body">
-            <%= simple_form_for Quote.new do |f| %>
-              <%= f.input :saying %>
-              <%= f.input :author %>
+         
+          <%= simple_form_for Quote.new do |f| %>
+             <div class="modal-body">
+              <%= f.input :saying, label: 'Share something interesting about yourself', placeholder: "Maybe something funny, or profound?", error: 'Must share something between 4-150 characters'%>
               <br />
-
+              <%= f.input :author, label: 'Tell us your name!', placeholder: "First Name, Last Name", error: 'Must share something between 4-150 characters' %>
+              <br />
 
           </div>
           <div class="modal-footer">
@@ -81,10 +84,10 @@
     <div class="footer">
       <div class="container">
         <div class="row">
-          <div class="col-6">
+          <div class="col-12 col-sm-6">
             <%= link_to "This isn't enough, I need more", "root_path", class: 'next-quote' %>
       </div>
-      <div class="col-6 footer-blurb">
+      <div class="col-12 col-sm-6 footer-blurb">
         Created by <a href="https://splurty-stephen-cotton.herokuapp.com/">Stephen Cotton</a>
 
       </div>
