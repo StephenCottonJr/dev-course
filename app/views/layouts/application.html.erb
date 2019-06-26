@@ -24,20 +24,58 @@
         <% end %>
       </div>
       <div class="col col-sm-4 hidden-xs-down slogan">
-      <div class="col-4 slogan">
+      <!-- <div class="col-4 slogan"> -->
         Splurting Out advice since 2016
       </div>
       <div class="col-10 offset-1 offset-sm-0 col-sm-5 links">
-      <div class="col-5 links">
-        <!-- Button trigger modal -->
+
+
+<!-- Navigation Links -->
+
+  <!--Contribute Button -- Will Launch Modal  -->
         <%= link_to 'Contribute', '#', data: {toggle: 'modal', target: '#myModal'} %>
-        &nbsp; &nbsp;
-        <%= link_to 'About', '#' %>
+        <!-- & nbsp; adds empty space -->
+          &nbsp; &nbsp;
+
+  <!-- About Link -->
+        <%= link_to 'About', about_path %>
+          &nbsp; &nbsp;
+
+  <!-- Contacts Link -->
+        <%= link_to 'Contacts', contact_path %>
+          &nbsp; &nbsp;
+
+        <!-- <&= link_to 'Name which will be displayed', <Method/Object>_path [_path is always added to variable]
+        contact_path | contact is the 'action' in controller#action -->
+
+  <!-- Authors Link -->
+        <%= link_to 'Authors', author_path %>
+          &nbsp; &nbsp;
+
+
+        <!-- Narative:
+              Application template view is given LINK NAME: 'Authors'
+              Application template view is given ACTION: 'author'_path
+              Application will reference routes.rb to determine where to direct action
+
+              We need to create controller called 'Author'
+              We need to tell 'Config->Routes' what to do with method 'Author'
+
+               -->
       </div>
+
     </header>
 
+<!-- Explanation --
 
-    <!-- Modal -->
+      This closes Header (which will be used on all pages)
+      The actual VIEW which is rended will be initiated by the 'Yield' call
+       -->
+
+
+
+<!-- Modal - Definition -->
+
     <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
       <div class="modal-dialog" role="document">
         <div class="modal-content">
@@ -47,23 +85,24 @@
             </button>
             <h4 class="modal-title" id="myModalLabel">Contribute Your Quote</h4>
           </div>
-         
           <%= simple_form_for Quote.new do |f| %>
-             <div class="modal-body">
+            <div class="modal-body">
               <%= f.input :saying, label: 'Share something interesting about yourself', placeholder: "Maybe something funny, or profound?", error: 'Must share something between 4-150 characters'%>
               <br />
               <%= f.input :author, label: 'Tell us your name!', placeholder: "First Name, Last Name", error: 'Must share something between 4-150 characters' %>
               <br />
 
-          </div>
-          <div class="modal-footer">
-            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-            <%= f.submit 'Create', class: 'btn btn-danger' %>
-          </div>
-        <% end %>          
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+              <%= f.submit 'Create', class: 'btn btn-danger' %>
+            </div>
+          <% end %>          
         </div>
       </div>
     </div>
+
+<!-- End Modal Definition -->
 
 
 
@@ -78,8 +117,23 @@
         </div>
       <% end %>
 
+
+<!-- View RENDER COMMAND -->
+
       <%= yield %>
     </div>
+
+<!-- Explanation -- 
+
+    Yield is a built-in Ruby Method
+    Yield tells template to look at controller#action for which view should be rendered
+
+    Generally speaking the URL /quotes, etc. tells View which controller / action to render
+
+ -->
+
+
+<!-- Footer Start -->
 
     <div class="footer">
       <div class="container">
@@ -87,6 +141,7 @@
           <div class="col-12 col-sm-6">
             <%= link_to "This isn't enough, I need more", "root_path", class: 'next-quote' %>
       </div>
+
       <div class="col-12 col-sm-6 footer-blurb">
         Created by <a href="https://splurty-stephen-cotton.herokuapp.com/">Stephen Cotton</a>
 
